@@ -1,89 +1,47 @@
-<template>
-  <div class="d-flex flex-column mh-100">
-    <AppNav />
-    <router-view data-aos="fade" />
-    <AppFooter />
-  </div>
-</template>
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
 
-<script>
-import AppFooter from "@/components/app-footer";
-import AppNav from "@/components/app-nav";
-
-export default {
-  components: {
-    AppFooter,
-    AppNav
-  }
-};
 </script>
 
-<style lang="scss">
-@import "./assets/scss/custom-bootstrap";
-
-[v-cloak] {
-  display: none;
-}
-
-::selection {
-  background-color: $primary;
-  color: white;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
-  padding-top: 56px;
-}
-
-.cursive {
-  font-family: "Shadows Into Light", cursive;
-  letter-spacing: 0.125rem;
-}
-
-.img-wrapper {
-  display: inline-block;
-  overflow: hidden;
-}
-
-.mh-100 {
-  min-height: calc(100vh - 56px);
-}
-
-.hvr-grow {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-
-.hvr-grow:hover,
-.hvr-grow:focus,
-.hvr-grow:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.hvr-shadow {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow;
-  transition-property: box-shadow;
-}
-
-.hvr-shadow:hover,
-.hvr-shadow:focus,
-.hvr-shadow:active {
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-}
-</style>
+<template>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+             <router-link class="nav-link" to="/home">Home</router-link>
+            
+            <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+          </li>
+          <li class="nav-item">
+             <router-link class="nav-link" to="/about">Go to About</router-link>
+            <!-- <a class="nav-link" href="#">Link</a> -->
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <router-view></router-view>
+</template>
